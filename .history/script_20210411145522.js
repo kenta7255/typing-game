@@ -24,19 +24,6 @@ const textLists = {
   "0以上num未満の乱数を生成します。" : "Math.floor(Math.random() * num)",
   "連想配列のキーを取得します" : "Object.keys()",
   "連想配列のキーの数ループを作成します。" : "for (let i in Dictionary){}" ,
-  "forループやwhileループの処理を途中でスキップします" : "continue",
-  "new Date()で現在の日時（Dateオブジェクト）を生成し、西暦の年4桁を取得します。" : "getFullYear()",
-  "new Date()で現在の日時（Dateオブジェクト）を生成し、時間を取得します。" : "getMinutes()",
-  "new Date()で現在の日時（Dateオブジェクト）を生成し、秒を取得します" : "getSeconds()",
-  "new Date()で現在の日時（Dateオブジェクト）を生成し、月を取得します" : "getMonth()",
-  "new Date()で現在の日時（Dateオブジェクト）を生成し、日を取得します" : "getDate()",
-  "new Date()で現在の日時（Dateオブジェクト）を生成し、曜日を取得します" : "getDay()",
-  "新しいウィンドウやタブで指定ページを開きます。" : "window.open()",
-  "水平方向のスクロール量を取得します。" : "window.scrollX",
-  "垂直方向のスクロール量を取得します。" : "window.scrollY",
-  "指定した座標までウィンドウをスクロールさせます。" : "window.scrollTo(X, Y)",
-  "ブラウザのビューポートの横幅を取得します。" : "window.innerWidth",
-  "ブラウザのビューポートの高さを取得します。" : "window.innerHeight",
 };
 
 
