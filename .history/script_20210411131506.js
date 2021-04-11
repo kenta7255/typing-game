@@ -23,31 +23,24 @@ let checkTexts = [];
 
 const createText = () => {
   const p = document.getElementById('text');
-  p.textContent = '';
-
-  const d = document.getElementById('description');
-  d.textContent = '';
-
+  const rand = Math.floor(Math.random() * Object.keys(textLists).length);
   let length = 0;
-  let text = [];
-  let description = [];
+  let ary = [];
   for (let i in textLists){
     length++;
-    description.push(i);
-    text.push(textLists[i]);
+    ary.push(textLists[i]);
   }
-  const rand = Math.floor(Math.random() * Object.keys(textLists).length);
-  
-  checkTexts = text[rand].split(('')).map(value => {
+
+  console.log(ary);
+
+  p.textContent = '';
+
+  checkTexts = textLists[rand].split(('')).map(value => {
     const span = document.createElement('span');
     span.textContent = value;
     p.appendChild(span);
     return span;
   })
-
-  for (let item of description){
-    d.textContent = description[rand];
-  }
 
 };
 

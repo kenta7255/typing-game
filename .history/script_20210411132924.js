@@ -46,7 +46,7 @@ const createText = () => {
   })
 
   for (let item of description){
-    d.textContent = description[rand];
+
   }
 
 };

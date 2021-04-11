@@ -25,15 +25,10 @@ const createText = () => {
   const p = document.getElementById('text');
   p.textContent = '';
 
-  const d = document.getElementById('description');
-  d.textContent = '';
-
   let length = 0;
   let text = [];
-  let description = [];
   for (let i in textLists){
     length++;
-    description.push(i);
     text.push(textLists[i]);
   }
   const rand = Math.floor(Math.random() * Object.keys(textLists).length);
@@ -44,10 +39,6 @@ const createText = () => {
     p.appendChild(span);
     return span;
   })
-
-  for (let item of description){
-    d.textContent = description[rand];
-  }
 
 };
 

@@ -25,9 +25,6 @@ const createText = () => {
   const p = document.getElementById('text');
   p.textContent = '';
 
-  const d = document.getElementById('description');
-  d.textContent = '';
-
   let length = 0;
   let text = [];
   let description = [];
@@ -44,10 +41,6 @@ const createText = () => {
     p.appendChild(span);
     return span;
   })
-
-  for (let item of description){
-    d.textContent = description[rand];
-  }
 
 };
 

@@ -20,34 +20,20 @@ const textLists = {
 
 
 let checkTexts = [];
+console.log(Object.keys(textLists).length);
 
 const createText = () => {
   const p = document.getElementById('text');
+  // const rand = Math.floor(Math.random() * textLists.keys()length);
+
   p.textContent = '';
 
-  const d = document.getElementById('description');
-  d.textContent = '';
-
-  let length = 0;
-  let text = [];
-  let description = [];
-  for (let i in textLists){
-    length++;
-    description.push(i);
-    text.push(textLists[i]);
-  }
-  const rand = Math.floor(Math.random() * Object.keys(textLists).length);
-  
-  checkTexts = text[rand].split(('')).map(value => {
+  checkTexts = textLists[rand].split(('')).map(value => {
     const span = document.createElement('span');
     span.textContent = value;
     p.appendChild(span);
     return span;
   })
-
-  for (let item of description){
-    d.textContent = description[rand];
-  }
 
 };
 
