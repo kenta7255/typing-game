@@ -89,7 +89,7 @@ const timer = () => {
 
 
 start.addEventListener('click', () => {
-  const decide = new Audio('deside.mp3');
+  const decide = new Audio('decide.mp3');
   decide.play();
   wrap.style.display = "block";
   count.style.display = "block";

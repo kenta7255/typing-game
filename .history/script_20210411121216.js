@@ -50,7 +50,7 @@ const keyDown = e => {
   } else if (e.key === 'Shift') {
     wrap.style.backgroundColor = 'white';
   } else {
-    const miss = new Audio('miss.mp3');
+    const miss = new Audio('press_button.mp3');
     miss.play();
     wrap.style.backgroundColor = 'red';
   }
@@ -89,7 +89,7 @@ const timer = () => {
 
 
 start.addEventListener('click', () => {
-  const decide = new Audio('deside.mp3');
+  const decide = new Audio('decide.mp3');
   decide.play();
   wrap.style.display = "block";
   count.style.display = "block";

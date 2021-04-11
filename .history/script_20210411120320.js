@@ -50,8 +50,8 @@ const keyDown = e => {
   } else if (e.key === 'Shift') {
     wrap.style.backgroundColor = 'white';
   } else {
-    const miss = new Audio('miss.mp3');
-    miss.play();
+    const sound = new Audio('press_button.mp3');
+    sound.play();
     wrap.style.backgroundColor = 'red';
   }
 };
@@ -82,15 +82,13 @@ const timer = () => {
     if (time <= 5) {
       count.style.color = 'red';
     }
-    if (time === 0) gameOver(id);
+    if (time <= 0) gameOver(id);
     count.textContent = time--;
   }, 1000);
 };
 
 
 start.addEventListener('click', () => {
-  const decide = new Audio('deside.mp3');
-  decide.play();
   wrap.style.display = "block";
   count.style.display = "block";
   timer();
