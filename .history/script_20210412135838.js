@@ -84,25 +84,21 @@ const keyDown = e => {
 
   wrap.style.backgroundColor = 'white';
   if (e.key === checkTexts[0].textContent) {
-    // キー入力と文字が一致していたら、add-colorで背景色と同化
     checkTexts[0].className = 'add-color';
-    // 最初の要素取り除き
+
     checkTexts.shift();
     score++;
 
     if (!checkTexts.length) createText();
   } else if (e.key === 'Shift') {
-    // シフトキーは無視する
     wrap.style.backgroundColor = 'white';
   } else {
-    // 音声と背景を赤に
     const miss = new Audio('miss.mp3');
     miss.play();
     wrap.style.backgroundColor = 'red';
   }
 };
 
-// スコア計算
 let text = ''
 const rankCheck = score => {
   if (score < 100) {
@@ -114,18 +110,17 @@ const rankCheck = score => {
   } else if (score >= 300) {
     text = 'あなたのランクはSです。'
   }
-  return `${score}文字打てました！\nあなたのランクは${text}`;
+  return `${score}文字打てました！\n${text}\n【OK】リトライ／【キャンセル】終了`;
 };
 const gameOver = id => {
   clearInterval(id);
 
-  window.alert(rankCheck(score));
-  window.location.reload();
+  const result = confirm(rankCheck(score));
+  if (result) window.location.reload();
 };
-
-// タイマー
 const timer = () => {
-  let time = 15;
+  let time = 60;
+
   const id = setInterval(() => {
     if (time <= 5) {
       count.style.color = 'red';
@@ -135,7 +130,7 @@ const timer = () => {
   }, 1000);
 };
 
-// スタートボタン押した後の処理
+
 start.addEventListener('click', () => {
   const decide = new Audio('deside.mp3');
   decide.play();

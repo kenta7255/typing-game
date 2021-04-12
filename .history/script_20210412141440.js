@@ -102,7 +102,6 @@ const keyDown = e => {
   }
 };
 
-// スコア計算
 let text = ''
 const rankCheck = score => {
   if (score < 100) {
@@ -114,7 +113,7 @@ const rankCheck = score => {
   } else if (score >= 300) {
     text = 'あなたのランクはSです。'
   }
-  return `${score}文字打てました！\nあなたのランクは${text}`;
+  return `${score}文字打てました！`;
 };
 const gameOver = id => {
   clearInterval(id);
@@ -123,9 +122,9 @@ const gameOver = id => {
   window.location.reload();
 };
 
-// タイマー
 const timer = () => {
   let time = 15;
+
   const id = setInterval(() => {
     if (time <= 5) {
       count.style.color = 'red';
@@ -135,7 +134,7 @@ const timer = () => {
   }, 1000);
 };
 
-// スタートボタン押した後の処理
+
 start.addEventListener('click', () => {
   const decide = new Audio('deside.mp3');
   decide.play();

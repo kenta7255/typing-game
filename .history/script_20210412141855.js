@@ -102,7 +102,6 @@ const keyDown = e => {
   }
 };
 
-// スコア計算
 let text = ''
 const rankCheck = score => {
   if (score < 100) {

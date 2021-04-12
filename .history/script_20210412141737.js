@@ -102,7 +102,6 @@ const keyDown = e => {
   }
 };
 
-// スコア計算
 let text = ''
 const rankCheck = score => {
   if (score < 100) {
@@ -123,7 +122,6 @@ const gameOver = id => {
   window.location.reload();
 };
 
-// タイマー
 const timer = () => {
   let time = 15;
   const id = setInterval(() => {
@@ -135,7 +133,7 @@ const timer = () => {
   }, 1000);
 };
 
-// スタートボタン押した後の処理
+
 start.addEventListener('click', () => {
   const decide = new Audio('deside.mp3');
   decide.play();

@@ -4,11 +4,9 @@ const wrap = document.getElementById('wrap');
 const start = document.getElementById('start');
 const count = document.getElementById('count');
 
-// テキスト入力欄とカウンターはデフォルト非表示
 wrap.style.display = "none";
 count.style.display = "none";
 
-// タイピングテキストと、説明を連想配列で管理
 const textLists = {
   "渡された値をコンソールに表示します。": "console.log()",
   "id プロパティが指定された文字列に一致する要素を表す Element オブジェクトを返します。": "document.getElementById()",
@@ -51,7 +49,6 @@ const createText = () => {
   const d = document.getElementById('description');
   d.textContent = '';
 
-  // ハッシュの取り出し処理
   let length = 0;
   let text = [];
   let description = [];
@@ -60,11 +57,8 @@ const createText = () => {
     description.push(i);
     text.push(textLists[i]);
   }
-
-  // ハッシュのキー未満の乱数を生成
   const rand = Math.floor(Math.random() * Object.keys(textLists).length);
 
-  // split&mapで一文字ずつspanタグで括り、htmlに渡す
   checkTexts = text[rand].split(('')).map(value => {
     const span = document.createElement('span');
     span.textContent = value;
@@ -72,7 +66,6 @@ const createText = () => {
     return span;
   })
 
-  // 設問文の配列インデックスを乱数で指定し、htmlに渡す
   for (let item of description) {
     d.textContent = description[rand];
   }
@@ -84,25 +77,21 @@ const keyDown = e => {
 
   wrap.style.backgroundColor = 'white';
   if (e.key === checkTexts[0].textContent) {
-    // キー入力と文字が一致していたら、add-colorで背景色と同化
     checkTexts[0].className = 'add-color';
-    // 最初の要素取り除き
+
     checkTexts.shift();
     score++;
 
     if (!checkTexts.length) createText();
   } else if (e.key === 'Shift') {
-    // シフトキーは無視する
     wrap.style.backgroundColor = 'white';
   } else {
-    // 音声と背景を赤に
     const miss = new Audio('miss.mp3');
     miss.play();
     wrap.style.backgroundColor = 'red';
   }
 };
 
-// スコア計算
 let text = ''
 const rankCheck = score => {
   if (score < 100) {
@@ -114,18 +103,17 @@ const rankCheck = score => {
   } else if (score >= 300) {
     text = 'あなたのランクはSです。'
   }
-  return `${score}文字打てました！\nあなたのランクは${text}`;
+  return `${score}文字打てました！\n${text}\n【OK】リトライ／【キャンセル】終了`;
 };
 const gameOver = id => {
   clearInterval(id);
 
-  window.alert(rankCheck(score));
-  window.location.reload();
+  const result = confirm(rankCheck(score));
+  if (result) window.location.reload();
 };
-
-// タイマー
 const timer = () => {
-  let time = 15;
+  let time = 60;
+
   const id = setInterval(() => {
     if (time <= 5) {
       count.style.color = 'red';
@@ -135,7 +123,7 @@ const timer = () => {
   }, 1000);
 };
 
-// スタートボタン押した後の処理
+
 start.addEventListener('click', () => {
   const decide = new Audio('deside.mp3');
   decide.play();
